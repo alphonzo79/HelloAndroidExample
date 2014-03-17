@@ -2,6 +2,8 @@ package example.hello_android;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -67,8 +69,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button.OnClickListener handleExplicitIntent = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //todo
-            Log.d("TEST", "handleExplicitIntent clicked");
+            Intent explicit = new Intent(MainActivity.this, SecondActivity.class);
+            explicit.putExtra("input", input.getText().toString());
+            explicit.putExtra("time", System.currentTimeMillis());
+            startActivity(explicit);
         }
     };
 
@@ -76,8 +80,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.implicit_intent:
-                //todo
-                Log.d("TEST", "implicitIntent clicked");
+                Intent implicit = new Intent(Intent.ACTION_VIEW);
+                implicit.setData(Uri.parse("http://www.bodybuilding.com"));
+                startActivity(implicit);
                 break;
         }
     }
