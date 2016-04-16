@@ -1,13 +1,9 @@
 package example.hello_android;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,7 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch(v.getId()) {
             case R.id.implicit_intent:
                 Intent implicit = new Intent(Intent.ACTION_VIEW);
-                implicit.setData(Uri.parse("http://www.bodybuilding.com"));
+                implicit.setData(Uri.parse("http://www.mlb.com"));
                 startActivity(implicit);
                 break;
         }
