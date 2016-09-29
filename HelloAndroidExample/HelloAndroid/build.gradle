@@ -5,6 +5,7 @@ android {
     buildToolsVersion "20"
 
     defaultConfig {
+        applicationId "example.hello_android.one"
         minSdkVersion 14
         targetSdkVersion 19
         versionCode 1
